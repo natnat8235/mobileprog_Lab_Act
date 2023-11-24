@@ -1,0 +1,37 @@
+
+class Estravela extends StatefulWidget {
+  const Estravela ({Key? key}) : super(key: key);
+
+  @override
+  State<Estravela> createState() => _Estravelafamily();
+}
+
+class _Estravelafamily extends State<Estravela> {
+
+  List family = [
+    {'name': 'Violeta Estravela'},
+    {'name': 'Mark Anthony Estravela'},
+    {'name': 'Mariane Estravela'},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ListView Builder'), 
+        leading: Icon(Icons.home),
+        backgroundColor: Colors.green
+      ),
+      body: ListView.builder(
+          itemCount: family.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(family[index]['name']),
+              leading: Icon(Icons.account_box),
+              subtitle: Text("${((family[index]['name'])).length - ' '.allMatches((family[index]['name'])).length}"),
+            );
+          }
+      )
+    );
+  }
+}
